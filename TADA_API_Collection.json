@@ -1,0 +1,402 @@
+{
+  "info": {
+    "name": "TADA Management System API",
+    "description": "Collection of API endpoints for TADA Management System",
+    "version": "1.0.0"
+  },
+  "item": [
+    {
+      "name": "Authentication",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"John Doe\",\n  \"email\": \"john@example.com\",\n  \"password\": \"password123\",\n  \"confirmPassword\": \"password123\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/register",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "register"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"john@example.com\",\n  \"password\": \"password123\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/login",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "login"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Profile",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/auth/profile",
+              "host": ["{{base_url}}"],
+              "path": ["auth", "profile"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "TADA Forms",
+      "item": [
+        {
+          "name": "Create Form",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"designation\": \"Manager\",\n  \"project\": \"Project Alpha\",\n  \"journey_purpose\": \"Client Meeting\",\n  \"date_from\": \"2026-05-15\",\n  \"date_to\": \"2026-05-17\",\n  \"time_from\": \"09:00\",\n  \"time_to\": \"17:00\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/tada",
+              "host": ["{{base_url}}"],
+              "path": ["tada"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Forms",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/tada",
+              "host": ["{{base_url}}"],
+              "path": ["tada"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Form by ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/tada/{{form_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["tada", "{{form_id}}"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Form",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"designation\": \"Senior Manager\",\n  \"status\": \"submitted\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/tada/{{form_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["tada", "{{form_id}}"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Form",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/tada/{{form_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["tada", "{{form_id}}"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Expenses",
+      "item": [
+        {
+          "name": "Add Expense",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"date\": \"2026-05-15\",\n  \"place_from\": \"Mumbai\",\n  \"place_to\": \"Delhi\",\n  \"mode\": \"Air\",\n  \"fare\": 5000,\n  \"accommodation\": 3000,\n  \"conveyance\": 500,\n  \"da\": 1000\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/tada/{{form_id}}/expenses",
+              "host": ["{{base_url}}"],
+              "path": ["tada", "{{form_id}}", "expenses"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Expense",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"fare\": 5500\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/tada/{{form_id}}/expenses/{{expense_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["tada", "{{form_id}}", "expenses", "{{expense_id}}"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Expense",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/tada/{{form_id}}/expenses/{{expense_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["tada", "{{form_id}}", "expenses", "{{expense_id}}"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Bank Details",
+      "item": [
+        {
+          "name": "Save Bank Details",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"account_name\": \"John Doe\",\n  \"bank_name\": \"State Bank of India\",\n  \"account_number\": \"1234567890\",\n  \"ifsc_code\": \"SBIN0001234\"\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/bank",
+              "host": ["{{base_url}}"],
+              "path": ["bank"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Bank Details",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/bank",
+              "host": ["{{base_url}}"],
+              "path": ["bank"]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "File Upload",
+      "item": [
+        {
+          "name": "Upload Files",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "files",
+                  "type": "file",
+                  "src": []
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/upload/{{form_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["upload", "{{form_id}}"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Files",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/upload/{{form_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["upload", "{{form_id}}"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete File",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{base_url}}/upload/{{file_id}}",
+              "host": ["{{base_url}}"],
+              "path": ["upload", "{{file_id}}"]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:5000/api"
+    },
+    {
+      "key": "token",
+      "value": ""
+    },
+    {
+      "key": "form_id",
+      "value": ""
+    },
+    {
+      "key": "expense_id",
+      "value": ""
+    },
+    {
+      "key": "file_id",
+      "value": ""
+    }
+  ]
+}

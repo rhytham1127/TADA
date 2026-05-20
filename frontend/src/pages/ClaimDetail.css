@@ -1,0 +1,86 @@
+/* Claim Detail Page Styles */
+
+.card {
+  background: white;
+  border: 1px solid var(--gray-100);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-draft {
+  background: var(--gray-100);
+  color: var(--gray-700);
+}
+
+.badge-submitted {
+  background: #fef3e8;
+  color: #b8860b;
+}
+
+.badge-approved {
+  background: var(--green-50);
+  color: var(--green-700);
+}
+
+.badge-rejected {
+  background: var(--red-50);
+  color: var(--red-700);
+}
+
+.badge-pending {
+  background: #fef3e8;
+  color: #b8860b;
+}
+
+/* Buttons */
+.btn-outline {
+  background: white;
+  color: var(--navy);
+  border: 2px solid var(--navy);
+  padding: 10px 20px;
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-outline:hover {
+  background: var(--navy);
+  color: white;
+}
+
+.btn-outline:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Loading state */
+.loading-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--gray-400);
+  font-size: 16px;
+}
+
+/* Expense table responsive */
+@media (max-width: 768px) {
+  table {
+    font-size: 12px;
+  }
+
+  th, td {
+    padding: 8px 6px !important;
+  }
+}
